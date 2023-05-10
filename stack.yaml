@@ -1,11 +1,6 @@
-resolver: lts-7.0
+resolver: lts-20.18
 
 packages:
 - '.'
 
-extra-deps: []
-
-flags: {}
-
-extra-package-dbs: []
-
+allow-newer: true
