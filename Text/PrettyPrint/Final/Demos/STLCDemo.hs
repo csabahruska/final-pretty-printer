@@ -152,9 +152,11 @@ execDoc d =
 instance IsString Doc where
   fromString = text . fromString
 
+instance Semigroup Doc where
+  (<>) = (>>)
+
 instance Monoid Doc where
   mempty = return ()
-  mappend = (>>)
 
 renderAnnotation :: Ann -> Text -> Text
 renderAnnotation (Class c) t = mconcat [ "<span class='" , c , "'>" , t , "</span>" ]

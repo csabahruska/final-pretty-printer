@@ -98,9 +98,11 @@ data POut w ann =
   | PSeq (POut w ann) (POut w ann) -- ^ The concatenation of two outputs
   deriving (Eq, Ord, Functor)
 
+instance Semigroup (POut w ann) where
+  (<>) = PSeq
+
 instance Monoid (POut w ann) where
   mempty = PNull
-  mappend = PSeq
 
 -- | Monad @m@ can measure lines formatted by @fmt@, getting width @w@.
 --
